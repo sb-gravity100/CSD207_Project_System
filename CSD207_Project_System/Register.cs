@@ -66,7 +66,7 @@ namespace CSD207_Project_System
             try
             {
                 client.Connect("smtp.gmail.com", 465, true);
-                client.Authenticate("sbducao.3@gmail.com", "yiey xpgd vgwu qzba");
+                client.Authenticate("noreplyducao@gmail.com", "qaoc uufj btpe cfpt");
                 client.Send(msg);
             } catch (Exception ex)
             {
