@@ -33,19 +33,17 @@
             // 
             // loginPanel
             // 
-            this.loginPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginPanel.Location = new System.Drawing.Point(74, 27);
+            this.loginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginPanel.Location = new System.Drawing.Point(0, 0);
             this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(542, 375);
+            this.loginPanel.Size = new System.Drawing.Size(784, 461);
             this.loginPanel.TabIndex = 0;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.loginPanel);
             this.Name = "Main";
             this.Text = "Form1";

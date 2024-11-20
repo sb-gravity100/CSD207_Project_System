@@ -39,7 +39,7 @@
             // username
             // 
             this.username.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(103, 94);
+            this.username.Location = new System.Drawing.Point(249, 157);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(288, 34);
             this.username.TabIndex = 0;
@@ -47,7 +47,7 @@
             // password
             // 
             this.password.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(103, 147);
+            this.password.Location = new System.Drawing.Point(249, 210);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(288, 34);
             this.password.TabIndex = 1;
@@ -56,7 +56,7 @@
             // loginBtn
             // 
             this.loginBtn.Font = new System.Drawing.Font("Source Sans Pro", 15.75F);
-            this.loginBtn.Location = new System.Drawing.Point(103, 187);
+            this.loginBtn.Location = new System.Drawing.Point(249, 250);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(287, 41);
             this.loginBtn.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.regBtn.AutoSize = true;
             this.regBtn.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regBtn.Location = new System.Drawing.Point(326, 231);
+            this.regBtn.Location = new System.Drawing.Point(472, 294);
             this.regBtn.Name = "regBtn";
             this.regBtn.Size = new System.Drawing.Size(64, 20);
             this.regBtn.TabIndex = 3;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(100, 78);
+            this.label1.Location = new System.Drawing.Point(246, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 4;
@@ -89,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 131);
+            this.label2.Location = new System.Drawing.Point(246, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 5;
@@ -106,7 +106,7 @@
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
             this.Name = "Login";
-            this.Size = new System.Drawing.Size(505, 330);
+            this.Size = new System.Drawing.Size(800, 500);
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

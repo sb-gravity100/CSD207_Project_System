@@ -47,7 +47,7 @@
             // 
             this.loginBtn.AutoSize = true;
             this.loginBtn.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(346, 332);
+            this.loginBtn.Location = new System.Drawing.Point(469, 369);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(47, 20);
             this.loginBtn.TabIndex = 7;
@@ -60,7 +60,7 @@
             // 
             this.regBtn.Enabled = false;
             this.regBtn.Font = new System.Drawing.Font("Source Sans Pro", 15.75F);
-            this.regBtn.Location = new System.Drawing.Point(106, 295);
+            this.regBtn.Location = new System.Drawing.Point(229, 332);
             this.regBtn.Name = "regBtn";
             this.regBtn.Size = new System.Drawing.Size(287, 34);
             this.regBtn.TabIndex = 6;
@@ -70,7 +70,7 @@
             // password
             // 
             this.password.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(106, 149);
+            this.password.Location = new System.Drawing.Point(229, 186);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(288, 34);
             this.password.TabIndex = 2;
@@ -80,7 +80,7 @@
             // username
             // 
             this.username.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(105, 43);
+            this.username.Location = new System.Drawing.Point(228, 80);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(288, 34);
             this.username.TabIndex = 0;
@@ -88,7 +88,7 @@
             // email
             // 
             this.email.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email.Location = new System.Drawing.Point(105, 96);
+            this.email.Location = new System.Drawing.Point(228, 133);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(288, 34);
             this.email.TabIndex = 1;
@@ -97,7 +97,7 @@
             // code
             // 
             this.code.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.code.Location = new System.Drawing.Point(106, 255);
+            this.code.Location = new System.Drawing.Point(229, 292);
             this.code.Name = "code";
             this.code.Size = new System.Drawing.Size(200, 34);
             this.code.TabIndex = 4;
@@ -106,7 +106,7 @@
             // password2
             // 
             this.password2.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password2.Location = new System.Drawing.Point(106, 202);
+            this.password2.Location = new System.Drawing.Point(229, 239);
             this.password2.Name = "password2";
             this.password2.Size = new System.Drawing.Size(288, 34);
             this.password2.TabIndex = 3;
@@ -115,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 27);
+            this.label1.Location = new System.Drawing.Point(226, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 11;
@@ -125,7 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 80);
+            this.label2.Location = new System.Drawing.Point(226, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 12;
@@ -135,7 +135,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 133);
+            this.label3.Location = new System.Drawing.Point(226, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 13;
@@ -145,7 +145,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(103, 186);
+            this.label4.Location = new System.Drawing.Point(226, 223);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 14;
@@ -155,7 +155,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(103, 239);
+            this.label5.Location = new System.Drawing.Point(226, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 15;
@@ -166,7 +166,7 @@
             // 
             this.sendBtn.Enabled = false;
             this.sendBtn.Font = new System.Drawing.Font("Source Sans Pro", 15.75F);
-            this.sendBtn.Location = new System.Drawing.Point(312, 255);
+            this.sendBtn.Location = new System.Drawing.Point(435, 292);
             this.sendBtn.Name = "sendBtn";
             this.sendBtn.Size = new System.Drawing.Size(82, 34);
             this.sendBtn.TabIndex = 5;
@@ -192,7 +192,7 @@
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
             this.Name = "Register";
-            this.Size = new System.Drawing.Size(505, 395);
+            this.Size = new System.Drawing.Size(800, 500);
             this.ResumeLayout(false);
             this.PerformLayout();
 
