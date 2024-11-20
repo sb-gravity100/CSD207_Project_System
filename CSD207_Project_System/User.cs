@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 
 namespace CSD207_Project_System
@@ -15,98 +16,68 @@ namespace CSD207_Project_System
         public string UserName { get; set; }
         public string Gmail { get; set; }
         public string Password { get; set; }
+        public string[] Likes { get; set; }
     }
 
     public class UserModel
     {
         private readonly IMongoCollection<User> _users;
 
-        public UserModel(string connectionString, string dbName, string collectionName)
+        public UserModel(IMongoDatabase database)
         {
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase(dbName);
-            _users = database.GetCollection<User>(collectionName);
+            _users = database.GetCollection<User>("Users");
         }
 
-        // Create (Insert) a new user
-        public bool CreateUser(User user)
+        public void InsertUser(User user)
         {
             try
             {
-                _users.InsertOne(user);  // InsertOne is still appropriate, MongoDB doesn't have an Insert method
-                return true;
+                _users.InsertOne(user);
             }
-            catch
-            {
-                return false;
-            }
+            catch (Exception e) { }
         }
 
-        // Read (Find) a user by their Id
-        public User GetUserById(string id)
-        {
-            try
-            {
-                return _users.Find(user => user.Id == id).FirstOrDefault();
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        // Read (Find) a user by their Username
-        public User GetUserByUsername(string username)
-        {
-            try
-            {
-                return _users.Find(user => user.UserName == username).FirstOrDefault();
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        // Update (Modify) an existing user using InsertOne for replacement
         public bool UpdateUser(string id, User updatedUser)
         {
             try
             {
-                var result = _users.ReplaceOne(user => user.Id == id, updatedUser);
+                var result = _users.ReplaceOne(u => u.Id == id, updatedUser);
                 return result.ModifiedCount > 0;
             }
-            catch
-            {
-                return false;
-            }
+            catch (Exception e) { }
+            return false;
         }
 
-        // Delete a user by their Id
         public bool DeleteUser(string id)
         {
             try
             {
-                var result = _users.DeleteOne(user => user.Id == id);
+                var result = _users.DeleteOne(u => u.Id == id);
                 return result.DeletedCount > 0;
             }
-            catch
-            {
-                return false;
-            }
+            catch (Exception e) { }
+            return false;
         }
 
-        // Get all users
-        public List<User> GetAllUsers()
+        public bool UserExists(string id)
         {
             try
             {
-                return _users.Find(user => true).ToList();
+                return _users.Find(u => u.Id == id).Any();
             }
-            catch
+            catch (Exception e) { }
+            return false;
+        }
+
+        public List<User> Search(string query)
+        {
+            try
             {
-                return new List<User>();
+                var filter = Builders<User>.Filter.Text(query);
+                return _users.Find(filter).ToList();
             }
+            catch (Exception e) { }
+            return new List<User>();
         }
     }
 }
