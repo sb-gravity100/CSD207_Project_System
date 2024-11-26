@@ -36,7 +36,7 @@
             this.themeBtn.AnimateShowHideButton = true;
             this.themeBtn.Depth = 0;
             this.themeBtn.Icon = global::CSD207_Project_System.Properties.Resources.dark_mode_black;
-            this.themeBtn.Location = new System.Drawing.Point(836, 35);
+            this.themeBtn.Location = new System.Drawing.Point(816, 38);
             this.themeBtn.Mini = true;
             this.themeBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.themeBtn.Name = "themeBtn";
@@ -48,21 +48,20 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(884, 695);
+            this.ClientSize = new System.Drawing.Size(864, 652);
             this.Controls.Add(this.themeBtn);
             this.DoubleBuffered = false;
-            this.DrawerAutoShow = true;
-            this.DrawerIsOpen = true;
-            this.DrawerShowIconsWhenHidden = true;
+            this.DrawerAutoHide = false;
             this.DrawerUseColors = true;
             this.DrawerWidth = 0;
             this.Font = new System.Drawing.Font("Oswald", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(864, 652);
             this.Name = "Main";
             this.Padding = new System.Windows.Forms.Padding(0, 24, 3, 3);
             this.Sizable = false;

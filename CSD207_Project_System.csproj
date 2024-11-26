@@ -202,10 +202,10 @@
     <Compile Include="classes\Comment.cs" />
     <Compile Include="classes\Post.cs" />
     <Compile Include="classes\User.cs" />
-    <Compile Include="ErrorPage.cs">
+    <Compile Include="controls\ErrorPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ErrorPage.Designer.cs">
+    <Compile Include="controls\ErrorPage.Designer.cs">
       <DependentUpon>ErrorPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -234,7 +234,7 @@
     <Compile Include="controls\UserWelcome.Designer.cs">
       <DependentUpon>UserWelcome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ErrorPage.resx">
+    <EmbeddedResource Include="controls\ErrorPage.resx">
       <DependentUpon>ErrorPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">

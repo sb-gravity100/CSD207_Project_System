@@ -17,11 +17,7 @@ namespace CSD207_Project_System
         {
             this.p = p;
             InitializeComponent();
-            BringToFront();
             Dock = DockStyle.Fill;
-            Console.WriteLine("HELO");
-            materialCard1.BringToFront();
-            materialButton1.BringToFront();
         }
     }
 }

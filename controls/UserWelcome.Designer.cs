@@ -29,53 +29,47 @@
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.TitleLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialButton1);
+            this.materialCard1.Controls.Add(this.TitleLabel);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(266, 14);
+            this.materialCard1.Location = new System.Drawing.Point(14, 14);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(339, 600);
+            this.materialCard1.Size = new System.Drawing.Size(836, 600);
             this.materialCard1.TabIndex = 0;
             // 
-            // materialButton1
+            // TitleLabel
             // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(82, 143);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(158, 36);
-            this.materialButton1.TabIndex = 0;
-            this.materialButton1.Text = "materialButton1";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.TitleLabel.Depth = 0;
+            this.TitleLabel.Font = new System.Drawing.Font("Roboto Light", 96F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TitleLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H1;
+            this.TitleLabel.Location = new System.Drawing.Point(88, 80);
+            this.TitleLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(666, 236);
+            this.TitleLabel.TabIndex = 0;
+            this.TitleLabel.Text = "Welcome to Tethys\r\n";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // UserWelcome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.materialCard1);
             this.DoubleBuffered = true;
+            this.Location = new System.Drawing.Point(0, 24);
             this.Name = "UserWelcome";
             this.Size = new System.Drawing.Size(864, 628);
             this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -83,6 +77,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialLabel TitleLabel;
     }
 }
