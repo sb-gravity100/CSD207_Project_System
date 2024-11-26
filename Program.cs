@@ -1,18 +1,19 @@
-﻿using MongoDB.Driver;
+﻿using dotenv.net;
+using dotenv.net.Utilities;
+using MongoDB.Driver;
+using SharpCompress;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace CSD207_Project_System
 {
     internal static class Program
     {
-        public static string url = "mongodb+srv://sb:sbgravity100@main.pa1uh.mongodb.net/";
-        public static string dbName = "main";
         public static MongoClient client;
         public static IMongoDatabase db;
+        public static IDictionary<string, string> env;
 
         /// <summary>
         /// The main entry point for the application.
@@ -20,8 +21,11 @@ namespace CSD207_Project_System
         [STAThread]
         static void Main()
         {
-            client = new MongoClient(url);
-            db = client.GetDatabase(dbName);
+            DotEnv.Load(new DotEnvOptions(probeForEnv: true, probeLevelsToSearch: 3));
+            DotEnv.Read();
+
+            client = new MongoClient(EnvReader.GetStringValue("MONGO_URL"));
+            db = client.GetDatabase(EnvReader.GetStringValue("DB_NAME"));
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

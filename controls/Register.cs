@@ -25,12 +25,21 @@ namespace CSD207_Project_System
         private System.Timers.Timer cooldownTimer;
         private int remainingCooldownTime;
         private UserModel users;
+        Main p; 
 
-        public Register()
+        public Register(Main parent)
         {
             InitializeComponent();
+            p = parent;
+            Dock = DockStyle.Fill;
 
-            remainingCooldownTime = 120; 
+            //RegInit();
+            regBtn.Enabled = true;
+        }
+
+        private void RegInit()
+        {
+            remainingCooldownTime = 120;
             cooldownTimer = new System.Timers.Timer(1000);
             cooldownTimer.Elapsed += OnCooldownTick;
             users = new UserModel();
@@ -40,16 +49,15 @@ namespace CSD207_Project_System
             regPassword.TextChanged += ValidateForm;
             regPassword2.TextChanged += ValidateForm;
             regCode.TextChanged += ValidateForm;
+
         }
 
         private void loginBtn_LinkClicked(object sender, EventArgs e)
         {
-            var p = this.Parent.Parent as Main;
             if (p != null)
             {
-                var loginPanel = p.Controls["loginPanel"];
-                loginPanel.Controls.Clear();
-                loginPanel.Controls.Add(new Login());
+                p.Controls.Remove(this);
+                p.Controls.Add(new Login(p));
             }
 
         }
@@ -132,14 +140,18 @@ namespace CSD207_Project_System
             bool isPasswordLong = regPassword.Text.Length >= 5;
             passMsg.Text = isPasswordLong && !isPasswordValid ? "Password is not similar." : "";
 
-            bool isCodeValid = regCode.Text.Equals(CODE);
+            bool isCodeValid;
+            if (CODE != null) isCodeValid = regCode.Text.Equals(CODE);
             bool isAvailable = await users.UsernameExists(regUsername.Text);
             userMsg.Text = !isAvailable ? "" : "Username already exists";
+
+
+            isCodeValid = true;
 
             regBtn.Enabled = isUsernameValid && isEmailValid && isPasswordValid && isCodeValid && !isAvailable && isPasswordLong;
         }
 
-        private void regBtn_Click(object sender, EventArgs e)
+        private void RegBtn_Click(object sender, EventArgs e)
         {
             var u = new User()
             {
@@ -149,12 +161,14 @@ namespace CSD207_Project_System
                 DisplayName = regUsername.Text,
             };
 
-            Task.Run(async () =>
-            {
-                await users.Insert(u);
-                MessageBox.Show($"User {u.UserName} added!");
-                Clear();
-            });
+            Clear();
+            ShowWelcome();
+        }
+
+        private void ShowWelcome()
+        {
+            p.Controls.Remove(this);
+            p.Controls.Add(new UserWelcome(p));
         }
 
         private void Clear()

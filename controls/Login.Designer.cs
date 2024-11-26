@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.userLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.passLabel = new MaterialSkin.Controls.MaterialLabel();
             this.regBtn = new MaterialSkin.Controls.MaterialLabel();
             this.loginBtn = new MaterialSkin.Controls.MaterialButton();
             this.password = new MaterialSkin.Controls.MaterialTextBox();
             this.username = new MaterialSkin.Controls.MaterialTextBox();
-            this.passLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.userLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,13 +50,39 @@
             this.materialCard1.Controls.Add(this.username);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(220, 14);
+            this.materialCard1.Location = new System.Drawing.Point(255, 78);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(350, 472);
             this.materialCard1.TabIndex = 6;
+            // 
+            // userLabel
+            // 
+            this.userLabel.Depth = 0;
+            this.userLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.userLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.userLabel.HighEmphasis = true;
+            this.userLabel.Location = new System.Drawing.Point(14, 114);
+            this.userLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(166, 16);
+            this.userLabel.TabIndex = 24;
+            this.userLabel.UseAccent = true;
+            // 
+            // passLabel
+            // 
+            this.passLabel.Depth = 0;
+            this.passLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.passLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.passLabel.HighEmphasis = true;
+            this.passLabel.Location = new System.Drawing.Point(14, 189);
+            this.passLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.passLabel.Name = "passLabel";
+            this.passLabel.Size = new System.Drawing.Size(166, 16);
+            this.passLabel.TabIndex = 23;
+            this.passLabel.UseAccent = true;
             // 
             // regBtn
             // 
@@ -116,6 +142,7 @@
             this.password.TabIndex = 9;
             this.password.Text = "";
             this.password.TrailingIcon = global::CSD207_Project_System.Properties.Resources.lock_gray;
+            this.password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterPress);
             // 
             // username
             // 
@@ -135,41 +162,15 @@
             this.username.TabIndex = 8;
             this.username.Text = "";
             this.username.TrailingIcon = global::CSD207_Project_System.Properties.Resources.user_gray;
-            // 
-            // passLabel
-            // 
-            this.passLabel.Depth = 0;
-            this.passLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.passLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.passLabel.HighEmphasis = true;
-            this.passLabel.Location = new System.Drawing.Point(14, 189);
-            this.passLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.passLabel.Name = "passLabel";
-            this.passLabel.Size = new System.Drawing.Size(166, 16);
-            this.passLabel.TabIndex = 23;
-            this.passLabel.UseAccent = true;
-            // 
-            // userLabel
-            // 
-            this.userLabel.Depth = 0;
-            this.userLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.userLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.userLabel.HighEmphasis = true;
-            this.userLabel.Location = new System.Drawing.Point(14, 114);
-            this.userLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(166, 16);
-            this.userLabel.TabIndex = 24;
-            this.userLabel.UseAccent = true;
+            this.username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterPress);
             // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.materialCard1);
             this.Name = "Login";
-            this.Size = new System.Drawing.Size(794, 500);
+            this.Size = new System.Drawing.Size(864, 628);
             this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
 

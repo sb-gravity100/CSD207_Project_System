@@ -28,30 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginPanel = new System.Windows.Forms.Panel();
             this.themeBtn = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.SuspendLayout();
-            // 
-            // loginPanel
-            // 
-            this.loginPanel.AutoSize = true;
-            this.loginPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.loginPanel.BackColor = System.Drawing.Color.Transparent;
-            this.loginPanel.Location = new System.Drawing.Point(6, 30);
-            this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(0, 0);
-            this.loginPanel.TabIndex = 0;
             // 
             // themeBtn
             // 
             this.themeBtn.AnimateShowHideButton = true;
             this.themeBtn.Depth = 0;
             this.themeBtn.Icon = global::CSD207_Project_System.Properties.Resources.dark_mode_black;
-            this.themeBtn.Location = new System.Drawing.Point(754, 30);
+            this.themeBtn.Location = new System.Drawing.Point(836, 35);
             this.themeBtn.Mini = true;
             this.themeBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.themeBtn.Name = "themeBtn";
-            this.themeBtn.Size = new System.Drawing.Size(40, 40);
+            this.themeBtn.Size = new System.Drawing.Size(42, 42);
             this.themeBtn.TabIndex = 15;
             this.themeBtn.Text = "materialFloatingActionButton1";
             this.themeBtn.UseVisualStyleBackColor = true;
@@ -61,25 +50,30 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(816, 530);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(884, 695);
             this.Controls.Add(this.themeBtn);
-            this.Controls.Add(this.loginPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.DoubleBuffered = false;
+            this.DrawerAutoShow = true;
+            this.DrawerIsOpen = true;
+            this.DrawerShowIconsWhenHidden = true;
+            this.DrawerUseColors = true;
+            this.DrawerWidth = 0;
+            this.Font = new System.Drawing.Font("Oswald", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximizeBox = false;
             this.Name = "Main";
-            this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0, 24, 3, 3);
             this.Sizable = false;
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tethys";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel loginPanel;
         private MaterialSkin.Controls.MaterialFloatingActionButton themeBtn;
     }
 }
