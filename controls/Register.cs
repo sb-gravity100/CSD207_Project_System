@@ -25,11 +25,12 @@ namespace CSD207_Project_System
         private System.Timers.Timer cooldownTimer;
         private int remainingCooldownTime;
         private UserModel users;
+        Main p; 
 
-        public Register()
+        public Register(Main parent)
         {
             InitializeComponent();
-
+            p = parent;
             remainingCooldownTime = 120; 
             cooldownTimer = new System.Timers.Timer(1000);
             cooldownTimer.Elapsed += OnCooldownTick;
@@ -44,12 +45,11 @@ namespace CSD207_Project_System
 
         private void loginBtn_LinkClicked(object sender, EventArgs e)
         {
-            var p = this.Parent.Parent as Main;
             if (p != null)
             {
                 var loginPanel = p.Controls["loginPanel"];
                 loginPanel.Controls.Clear();
-                loginPanel.Controls.Add(new Login());
+                loginPanel.Controls.Add(new Login(p));
             }
 
         }
