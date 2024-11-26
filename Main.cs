@@ -12,10 +12,11 @@ using MongoDB.Driver.Linq;
 using System.Text.RegularExpressions;
 using MaterialSkin;
 using static MaterialSkin.MaterialSkinManager;
+using MaterialSkin.Controls;
 
 namespace CSD207_Project_System
 {
-    public partial class Main : Form
+    public partial class Main : MaterialForm
     {
         public Themes THEME = MaterialSkinManager.Themes.LIGHT;
         public MaterialSkinManager skin = MaterialSkinManager.Instance;
@@ -23,14 +24,14 @@ namespace CSD207_Project_System
         public Main()
         {
             InitializeComponent();
-            //skin.AddFormToManage(this);
+            skin.AddFormToManage(this);
             skin.Theme = THEME;
             skin.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            loginPanel.Controls.Add(new Login());
+            loginPanel.Controls.Add(new Login(this));
         }
 
         private void themeBtn_Click(object sender, EventArgs e)

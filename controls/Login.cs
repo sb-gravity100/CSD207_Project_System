@@ -13,24 +13,30 @@ namespace CSD207_Project_System
     public partial class Login : UserControl
     {
         UserModel users;
-        public Login()
+        Main p;
+        public Login(Main parent)
         {
+            p = parent;
             users = new UserModel();
             InitializeComponent();
         }
 
         private void regBtn_LinkClicked(object sender, EventArgs e)
         {
-            var p = this.Parent.Parent as Main;
             if (p != null)
             {
                 var loginPanel = p.Controls["loginPanel"];
                 loginPanel.Controls.Clear();
-                loginPanel.Controls.Add(new Register());
+                loginPanel.Controls.Add(new Register(p));
             }
         }
 
-        private async void loginBtn_ClickAsync(object sender, EventArgs e)
+        private void loginBtn_ClickAsync(object sender, EventArgs e)
+        {
+            Task.Run(HandleLogin);
+        }
+
+        private async void HandleLogin()
         {
             bool isAvailable = await users.UsernameExists(username.Text);
             if (isAvailable)
@@ -54,6 +60,15 @@ namespace CSD207_Project_System
                 userLabel.Text = "Username incorrect.";
                 username.Text = "";
                 password.Text = "";
+            }
+        }
+
+        private void EnterPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+
+            {
+                Task.Run(HandleLogin);
             }
         }
     }
