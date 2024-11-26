@@ -15,7 +15,7 @@ using static MaterialSkin.MaterialSkinManager;
 
 namespace CSD207_Project_System
 {
-    public partial class Main : MaterialSkin.Controls.MaterialForm
+    public partial class Main : Form
     {
         public Themes THEME = MaterialSkinManager.Themes.LIGHT;
         public MaterialSkinManager skin = MaterialSkinManager.Instance;
@@ -23,7 +23,7 @@ namespace CSD207_Project_System
         public Main()
         {
             InitializeComponent();
-            skin.AddFormToManage(this);
+            //skin.AddFormToManage(this);
             skin.Theme = THEME;
             skin.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }

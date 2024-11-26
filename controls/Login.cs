@@ -41,15 +41,19 @@ namespace CSD207_Project_System
                 {
                     passLabel.Text = "";
                     MessageBox.Show("You got in!");
-                } else
+                }
+                else
                 {
                     passLabel.Text = "Password incorrect.";
+                    username.Text = "";
                     password.Text = "";
                 }
-            } else
+            }
+            else
             {
                 userLabel.Text = "Username incorrect.";
                 username.Text = "";
+                password.Text = "";
             }
         }
     }
