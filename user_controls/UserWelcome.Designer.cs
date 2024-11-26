@@ -52,7 +52,7 @@
             this.TitleLabel.Depth = 0;
             this.TitleLabel.Font = new System.Drawing.Font("Roboto Light", 96F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TitleLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H1;
-            this.TitleLabel.Location = new System.Drawing.Point(88, 80);
+            this.TitleLabel.Location = new System.Drawing.Point(89, 14);
             this.TitleLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(666, 236);

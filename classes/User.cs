@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace CSD207_Project_System
 {
 
-    public class User
+    public class User : BsonDocument
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

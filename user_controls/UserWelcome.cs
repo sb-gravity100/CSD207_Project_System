@@ -18,6 +18,11 @@ namespace CSD207_Project_System
             this.p = p;
             InitializeComponent();
             Dock = DockStyle.Fill;
+            var users = Program.db.GetCollection<User>("Users");
+            SearchBox.InitializeMongo(users, new List<string>() { "UserName", "DisplayName" }, new Dictionary<string, Func<User, string>>() {
+                {"UserName", s => s.UserName },
+                {"DisplayName", s => s.DisplayName},
+            });
         }
     }
 }
