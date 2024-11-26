@@ -1,6 +1,6 @@
 ﻿namespace CSD207_Project_System.controls
 {
-    partial class MainControl
+    partial class WelcomeUser
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,11 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // MainControl
+            // WelcomeUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "MainControl";
+            this.Name = "WelcomeUser";
             this.Size = new System.Drawing.Size(1056, 732);
             this.ResumeLayout(false);
 

@@ -221,17 +221,17 @@
     <Compile Include="classes\Comment.cs" />
     <Compile Include="classes\Post.cs" />
     <Compile Include="classes\User.cs" />
-    <Compile Include="controls\WelcomeUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="controls\WelcomeUser.Designer.cs">
-      <DependentUpon>WelcomeUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="controls\MainControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="controls\MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\WelcomeUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\WelcomeUser.Designer.cs">
+      <DependentUpon>WelcomeUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -253,11 +253,11 @@
     <Compile Include="controls\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="controls\WelcomeUser.resx">
-      <DependentUpon>WelcomeUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="controls\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\WelcomeUser.resx">
+      <DependentUpon>WelcomeUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

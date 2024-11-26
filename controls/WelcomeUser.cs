@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace CSD207_Project_System.controls
 {
-    public partial class MainControl : UserControl
+    public partial class WelcomeUser : UserControl
     {
         Main p;
-        public MainControl(Main parent)
+        public WelcomeUser(Main p)
         {
-            p = parent;
             InitializeComponent();
+            this.p = p;
         }
     }
 }
