@@ -35,12 +35,14 @@
             // 
             this.themeBtn.AnimateShowHideButton = true;
             this.themeBtn.Depth = 0;
+            this.themeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.themeBtn.Icon = global::CSD207_Project_System.Properties.Resources.dark_mode_black;
-            this.themeBtn.Location = new System.Drawing.Point(816, 38);
+            this.themeBtn.Location = new System.Drawing.Point(0, 693);
             this.themeBtn.Mini = true;
             this.themeBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.themeBtn.Name = "themeBtn";
-            this.themeBtn.Size = new System.Drawing.Size(42, 42);
+            this.themeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.themeBtn.Size = new System.Drawing.Size(901, 42);
             this.themeBtn.TabIndex = 15;
             this.themeBtn.Text = "materialFloatingActionButton1";
             this.themeBtn.UseVisualStyleBackColor = true;
@@ -48,12 +50,11 @@
             // 
             // Main
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.AutoSize = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(864, 652);
+            this.ClientSize = new System.Drawing.Size(904, 738);
             this.Controls.Add(this.themeBtn);
-            this.DoubleBuffered = false;
             this.DrawerAutoHide = false;
             this.DrawerUseColors = true;
             this.DrawerWidth = 0;
@@ -61,12 +62,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(864, 652);
             this.Name = "Main";
             this.Padding = new System.Windows.Forms.Padding(0, 24, 3, 3);
             this.Sizable = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tethys";
+            this.Text = "Gestalt";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
 

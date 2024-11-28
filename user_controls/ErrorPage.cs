@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +12,17 @@ namespace CSD207_Project_System
 {
     public partial class ErrorPage : UserControl
     {
-        public ErrorPage()
+        Main p;
+        public ErrorPage(Main parent)
         {
+            p = parent;
             InitializeComponent();
+            Dock = DockStyle.Fill;
+
+            ReturnBtn.Click += (s, e) =>
+            {
+                p.PrevPage();
+            };
         }
     }
 }

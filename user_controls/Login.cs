@@ -20,20 +20,42 @@ namespace CSD207_Project_System
             users = new UserModel();
             InitializeComponent();
             Dock = DockStyle.Fill;
+            username.Focus();
+
+            username.KeyDown += p.CtrlBackEnable;
+            password.KeyDown += p.CtrlBackEnable;
         }
 
         private void regBtn_LinkClicked(object sender, EventArgs e)
         {
             if (p != null)
             {
-                p.Controls.Remove(this);
-                p.Controls.Add(new Register(p));
+                p.NextPage(new Register(p));
+            }
+        }
+
+        public void CtrlBackEnable(object sender, KeyEventArgs e)
+        {
+            var txtbox = sender as TextBox;
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                int selectionStart = txtbox.SelectionStart;
+                if (selectionStart > 0)
+                {
+                    int wordStart = txtbox.Text.LastIndexOf(' ', selectionStart - 1);
+                    if (wordStart == -1)
+                        wordStart = 0;
+                    txtbox.Text = txtbox.Text.Remove(wordStart, selectionStart - wordStart);
+                    txtbox.SelectionStart = wordStart;
+                }
+                e.SuppressKeyPress = true;
+                e.Handled = true;
             }
         }
 
         private void loginBtn_ClickAsync(object sender, EventArgs e)
         {
-            Task.Run(HandleLogin);
+            HandleLogin();
         }
 
         private async void HandleLogin()
@@ -46,30 +68,30 @@ namespace CSD207_Project_System
                 if (u.Password == password.Text.Trim())
                 {
                     passLabel.Text = "";
-                    MessageBox.Show("You got in!");
-
+                    p.user = u;
+                    p.NextPage(new Home(p));
                 }
                 else
                 {
                     passLabel.Text = "Password incorrect.";
-                    username.Text = "";
-                    password.Text = "";
+                    password.Focus();
                 }
             }
             else
             {
                 userLabel.Text = "Username incorrect.";
-                username.Text = "";
-                password.Text = "";
+                username.Focus();
             }
         }
 
-        private void EnterPress(object sender, KeyPressEventArgs e)
+        private void EnterPress(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Return)
+            if (e.KeyCode == Keys.Enter)
 
             {
-                Task.Run(HandleLogin);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                HandleLogin();
             }
         }
     }

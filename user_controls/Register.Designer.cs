@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.RegCard = new MaterialSkin.Controls.MaterialCard();
             this.userMsg = new MaterialSkin.Controls.MaterialLabel();
             this.passMsg = new MaterialSkin.Controls.MaterialLabel();
             this.regGmail = new MaterialSkin.Controls.MaterialTextBox();
@@ -39,32 +39,32 @@
             this.regBtn = new MaterialSkin.Controls.MaterialButton();
             this.regPassword2 = new MaterialSkin.Controls.MaterialTextBox();
             this.regUsername = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialCard1.SuspendLayout();
+            this.RegCard.SuspendLayout();
             this.SuspendLayout();
             // 
-            // materialCard1
+            // RegCard
             // 
-            this.materialCard1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.userMsg);
-            this.materialCard1.Controls.Add(this.passMsg);
-            this.materialCard1.Controls.Add(this.regGmail);
-            this.materialCard1.Controls.Add(this.regPassword);
-            this.materialCard1.Controls.Add(this.sendBtn);
-            this.materialCard1.Controls.Add(this.regCode);
-            this.materialCard1.Controls.Add(this.loginBtn);
-            this.materialCard1.Controls.Add(this.regBtn);
-            this.materialCard1.Controls.Add(this.regPassword2);
-            this.materialCard1.Controls.Add(this.regUsername);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(255, 78);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(350, 472);
-            this.materialCard1.TabIndex = 16;
+            this.RegCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RegCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RegCard.Controls.Add(this.userMsg);
+            this.RegCard.Controls.Add(this.passMsg);
+            this.RegCard.Controls.Add(this.regGmail);
+            this.RegCard.Controls.Add(this.regPassword);
+            this.RegCard.Controls.Add(this.sendBtn);
+            this.RegCard.Controls.Add(this.regCode);
+            this.RegCard.Controls.Add(this.loginBtn);
+            this.RegCard.Controls.Add(this.regBtn);
+            this.RegCard.Controls.Add(this.regPassword2);
+            this.RegCard.Controls.Add(this.regUsername);
+            this.RegCard.Depth = 0;
+            this.RegCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RegCard.Location = new System.Drawing.Point(255, 78);
+            this.RegCard.Margin = new System.Windows.Forms.Padding(14);
+            this.RegCard.MouseState = MaterialSkin.MouseState.HOVER;
+            this.RegCard.Name = "RegCard";
+            this.RegCard.Padding = new System.Windows.Forms.Padding(14);
+            this.RegCard.Size = new System.Drawing.Size(350, 472);
+            this.RegCard.TabIndex = 16;
             // 
             // userMsg
             // 
@@ -110,7 +110,7 @@
             this.regGmail.TabIndex = 1;
             this.regGmail.Text = "";
             this.regGmail.TrailingIcon = global::CSD207_Project_System.Properties.Resources.mail_gray;
-            this.regGmail.TextChanged += new System.EventHandler(this.email_TextChanged);
+            this.regGmail.TextChanged += new System.EventHandler(this.Email_TextChanged);
             // 
             // regPassword
             // 
@@ -154,7 +154,7 @@
             this.sendBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.sendBtn.UseAccentColor = true;
             this.sendBtn.UseVisualStyleBackColor = true;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            this.sendBtn.Click += new System.EventHandler(this.SendBtn_Click);
             // 
             // regCode
             // 
@@ -189,7 +189,7 @@
             this.loginBtn.Text = "Login";
             this.loginBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.loginBtn.UseAccent = true;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_LinkClicked);
+            this.loginBtn.Click += new System.EventHandler(this.LoginBtn_LinkClicked);
             // 
             // regBtn
             // 
@@ -257,16 +257,16 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.RegCard);
             this.Name = "Register";
             this.Size = new System.Drawing.Size(864, 628);
-            this.materialCard1.ResumeLayout(false);
+            this.RegCard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialCard RegCard;
         private MaterialSkin.Controls.MaterialLabel loginBtn;
         private MaterialSkin.Controls.MaterialButton regBtn;
         private MaterialSkin.Controls.MaterialTextBox regPassword2;

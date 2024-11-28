@@ -142,7 +142,7 @@
             this.password.TabIndex = 9;
             this.password.Text = "";
             this.password.TrailingIcon = global::CSD207_Project_System.Properties.Resources.lock_gray;
-            this.password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterPress);
+            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterPress);
             // 
             // username
             // 
@@ -162,7 +162,7 @@
             this.username.TabIndex = 8;
             this.username.Text = "";
             this.username.TrailingIcon = global::CSD207_Project_System.Properties.Resources.user_gray;
-            this.username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterPress);
+            this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterPress);
             // 
             // Login
             // 

@@ -11,11 +11,8 @@ using System.Threading.Tasks;
 namespace CSD207_Project_System
 {
 
-    public class User : BsonDocument
+    public class User : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
         public string DisplayName { get; set; }
         public string UserName { get; set; }
         public string Gmail { get; set; }
@@ -41,32 +38,51 @@ namespace CSD207_Project_System
         public async Task<User> FindByUsername(string username) =>
             await _collection.Find(Builders<User>.Filter.Eq("UserName", username)).FirstOrDefaultAsync();
 
-        public async Task AddLikePost(string userId, string postId)
+        public async Task ToggleLikePost(string userId, string postId)
         {
             var user = await Find(userId);
             if (user != null)
             {
                 if (user.LikedPosts == null)
-                    user.LikedPosts = new List<String> { postId };
-                else if (!user.LikedPosts.Contains(postId))
-                    user.LikedPosts = (List<string>)user.LikedPosts.Intersect(new List<string> { postId });
-                await Update(userId, user);
-                await new PostModel().AddLike(postId);
+                    user.LikedPosts = new List<string>();
+
+                if (user.LikedPosts.Contains(postId))
+                {
+                    user.LikedPosts.Remove(postId);
+                    await new PostModel().RemoveLike(postId);
+                }
+                else
+                {
+                    user.LikedPosts.Add(postId);
+                    await new PostModel().AddLike(postId);
+                }
+
+                await Update(user);
             }
         }
 
-        public async Task AddLikeComment(string userId, string commentId)
+        public async Task ToggleLikeComment(string userId, string commentId)
         {
             var user = await Find(userId);
             if (user != null)
             {
                 if (user.LikedComments == null)
-                    user.LikedComments = new List<String> { commentId };
-                else if (!user.LikedComments.Contains(commentId))
-                    user.LikedComments = (List<string>)user.LikedComments.Concat(new List<string> { commentId });
-                await Update(userId, user);
-                await new CommentModel().AddLike(commentId);
+                    user.LikedComments = new List<string>();
+
+                if (user.LikedComments.Contains(commentId))
+                {
+                    user.LikedComments.Remove(commentId);
+                    await new CommentModel().RemoveLike(commentId);
+                }
+                else
+                {
+                    user.LikedComments.Add(commentId);
+                    await new CommentModel().AddLike(commentId);
+                }
+
+                await Update(user);
             }
         }
+
     }
 }

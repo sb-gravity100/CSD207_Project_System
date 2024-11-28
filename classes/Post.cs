@@ -11,13 +11,11 @@ using System.Threading.Tasks;
 namespace CSD207_Project_System
 {
 
-    public class Post
+    public class Post : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
         public string UserId { get; set; }
         public string Content { get; set; }
+        public List<string> Tags { get; set; }
         public int Likes { get; set; }
         public int Comments { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -41,7 +39,7 @@ namespace CSD207_Project_System
             if (post != null)
             {
                 post.Likes++;
-                await Update(postId, post);
+                await Update(post);
             }
         }
 
@@ -51,8 +49,29 @@ namespace CSD207_Project_System
             if (post != null)
             {
                 post.Comments++;
-                await Update(postId, post);
+                await Update(post);
             }
         }
+
+        public async Task RemoveLike(string postId)
+        {
+            var post = await Find(postId);
+            if (post != null && post.Likes > 0)
+            {
+                post.Likes--;
+                await Update(post);
+            }
+        }
+
+        public async Task RemoveComment(string postId)
+        {
+            var post = await Find(postId);
+            if (post != null && post.Comments > 0)
+            {
+                post.Comments--;
+                await Update(post);
+            }
+        }
+
     }
 }

@@ -12,20 +12,21 @@ using System.Windows.Forms;
 using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
+using SharpCompress;
 
 namespace CSD207_Project_System
 {
     public partial class Register : UserControl
     {
 
-        private static string CODE = null;
-        private static string emailPattern = @"^[\w-\.]+@gmail\.com";
-        private static Regex rg = new Regex(emailPattern);
+        private string CODE = null;
+        private static readonly string emailPattern = @"^[\w-\.]+@gmail\.com";
+        private static readonly Regex rg = new Regex(emailPattern);
 
         private System.Timers.Timer cooldownTimer;
         private int remainingCooldownTime;
         private UserModel users;
-        Main p; 
+        Main p;
 
         public Register(Main parent)
         {
@@ -33,8 +34,40 @@ namespace CSD207_Project_System
             p = parent;
             Dock = DockStyle.Fill;
 
-            //RegInit();
-            regBtn.Enabled = true;
+            RegInit();
+            //regBtn.Enabled = true;
+            RegCard.Controls.OfType<TextBox>().ForEach(t =>
+            {
+                t.KeyDown += p.CtrlBackEnable;
+            });
+        }
+
+        private async void RegBtn_Click(object sender, EventArgs e)
+        {
+            var u = new User()
+            {
+                UserName = regUsername.Text,
+                Gmail = regGmail.Text,
+                Password = regPassword.Text,
+                DisplayName = regUsername.Text,
+            };
+            try
+            {
+                //throw new Exception();
+                await users.Insert(u);
+                var us = await users.FindByUsername(u.UserName);
+                if (us != null)
+                {
+                    p.user = us;
+                    Clear();
+                    p.NextPage(new UserWelcome(p));
+                }
+            } catch (Exception ex)
+            {
+                p.NextPage(new ErrorPage(p));
+            }
+
+            
         }
 
         private void RegInit()
@@ -52,12 +85,11 @@ namespace CSD207_Project_System
 
         }
 
-        private void loginBtn_LinkClicked(object sender, EventArgs e)
+        private void LoginBtn_LinkClicked(object sender, EventArgs e)
         {
             if (p != null)
             {
-                p.Controls.Remove(this);
-                p.Controls.Add(new Login(p));
+                p.NextPage(new Login(p));
             }
 
         }
@@ -73,14 +105,16 @@ namespace CSD207_Project_System
             if (remainingCooldownTime > 0)
             {
                 remainingCooldownTime--;
-                sendBtn.Invoke((MethodInvoker)delegate {
+                sendBtn.Invoke((MethodInvoker)delegate
+                {
                     sendBtn.Text = $"{remainingCooldownTime}s";
                 });
             }
             else
             {
                 cooldownTimer.Stop();
-                sendBtn.Invoke((MethodInvoker)delegate {
+                sendBtn.Invoke((MethodInvoker)delegate
+                {
                     sendBtn.Enabled = true;
                     sendBtn.Text = "Send";
                 });
@@ -88,12 +122,12 @@ namespace CSD207_Project_System
             }
         }
 
-        private void sendBtn_Click(object sender, EventArgs e)
+        private void SendBtn_Click(object sender, EventArgs e)
         {
-            sendMail();
+            SendMail();
         }
 
-        private void sendMail()
+        private void SendMail()
         {
             var rnd = new Random();
             CODE = rnd.Next(10000, 99999).ToString();
@@ -114,20 +148,22 @@ namespace CSD207_Project_System
                 client.Connect("smtp.gmail.com", 465, true);
                 client.Authenticate("noreplyducao@gmail.com", "qaoc uufj btpe cfpt");
                 client.Send(msg);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            } finally
+            }
+            finally
             {
                 client.Disconnect(true);
                 client.Dispose();
-                regGmail.TextChanged -= email_TextChanged;
+                regGmail.TextChanged -= Email_TextChanged;
                 sendBtn.Enabled = false;
                 StartCooldown();
             }
         }
 
-        private void email_TextChanged(object sender, EventArgs e)
+        private void Email_TextChanged(object sender, EventArgs e)
         {
             sendBtn.Enabled = rg.IsMatch(regGmail.Text);
         }
@@ -151,25 +187,6 @@ namespace CSD207_Project_System
             regBtn.Enabled = isUsernameValid && isEmailValid && isPasswordValid && isCodeValid && !isAvailable && isPasswordLong;
         }
 
-        private void RegBtn_Click(object sender, EventArgs e)
-        {
-            var u = new User()
-            {
-                UserName = regUsername.Text,
-                Gmail = regGmail.Text,
-                Password = regPassword.Text,
-                DisplayName = regUsername.Text,
-            };
-
-            Clear();
-            ShowWelcome();
-        }
-
-        private void ShowWelcome()
-        {
-            p.Controls.Remove(this);
-            p.Controls.Add(new UserWelcome(p));
-        }
 
         private void Clear()
         {
