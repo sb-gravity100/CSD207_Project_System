@@ -201,9 +201,22 @@
     <Compile Include="classes\BaseRepository.cs" />
     <Compile Include="classes\Comment.cs" />
     <Compile Include="classes\Post.cs" />
+    <Compile Include="classes\Tag.cs" />
     <Compile Include="classes\User.cs" />
+    <Compile Include="user_controls\CreatePost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_controls\CreatePost.Designer.cs">
+      <DependentUpon>CreatePost.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\MongoFuzzySearchBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="user_controls\Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_controls\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="user_controls\ErrorPage.cs">
       <SubType>UserControl</SubType>
@@ -237,6 +250,9 @@
     <Compile Include="user_controls\UserWelcome.Designer.cs">
       <DependentUpon>UserWelcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="user_controls\CreatePost.resx">
+      <DependentUpon>CreatePost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user_controls\ErrorPage.resx">
       <DependentUpon>ErrorPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +269,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="user_controls\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user_controls\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

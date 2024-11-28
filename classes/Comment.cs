@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 
 namespace CSD207_Project_System.classes
 {
-    public class Comment
+    public class Comment : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
         public string Content { get; set; }
         public string PostId { get; set; }
         public string UserId { get; set; }
@@ -40,8 +37,18 @@ namespace CSD207_Project_System.classes
             if (comment != null)
             {
                 comment.Likes++;
-                await Update(commentId, comment);
+                await Update(comment);
             }
         }
+        public async Task RemoveLike(string commentId)
+        {
+            var comment = await Find(commentId);
+            if (comment != null && comment.Likes > 0)
+            {
+                comment.Likes--;
+                await Update(comment);
+            }
+        }
+
     }
 }
