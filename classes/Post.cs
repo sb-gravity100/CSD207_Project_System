@@ -40,6 +40,7 @@ namespace CSD207_Project_System
             {
                 post.Likes++;
                 await Update(post);
+                Console.WriteLine("done2");
             }
         }
 

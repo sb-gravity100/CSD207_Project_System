@@ -203,6 +203,24 @@
     <Compile Include="classes\Post.cs" />
     <Compile Include="classes\Tag.cs" />
     <Compile Include="classes\User.cs" />
+    <Compile Include="CommentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommentDialog.Designer.cs">
+      <DependentUpon>CommentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PostArea.Designer.cs">
+      <DependentUpon>PostArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_controls\EditProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_controls\EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="user_controls\CreatePost.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,8 +268,17 @@
     <Compile Include="user_controls\UserWelcome.Designer.cs">
       <DependentUpon>UserWelcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CommentDialog.resx">
+      <DependentUpon>CommentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostArea.resx">
+      <DependentUpon>PostArea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user_controls\CreatePost.resx">
       <DependentUpon>CreatePost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_controls\EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user_controls\ErrorPage.resx">
       <DependentUpon>ErrorPage.cs</DependentUpon>

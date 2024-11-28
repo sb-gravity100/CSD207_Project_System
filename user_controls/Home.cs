@@ -22,10 +22,11 @@ namespace CSD207_Project_System
             InitializeComponent();
             p = parent;
             Dock = DockStyle.Top;
-            Size = p.Size;
             posts = new PostModel();
             users = new UserModel();
             ProfileInit();
+
+            LogoutBtn.Click += (s, e) => p.Logout();
         }
 
         private void ProfileInit()
@@ -83,7 +84,22 @@ namespace CSD207_Project_System
                 Padding = new Padding(0, 20, 0, 20),
                 Text = post.Content,
                 AutoSize = false,
-                Size = new Size(362, 100)
+                Size = new Size(362, 100),
+                Cursor = Cursors.Hand,
+            };
+
+            bodyLabel.Click += (s, e) => {
+                p.NextPage(new PostArea(p, post));
+            };
+
+            bodyLabel.MouseHover += (s, e) =>
+            {
+                bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            };
+
+            bodyLabel.MouseLeave += (s, e) =>
+            {
+                bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Body1;
             };
 
             var subtitleLabel = new MaterialSkin.Controls.MaterialLabel
@@ -138,6 +154,13 @@ namespace CSD207_Project_System
                 Margin = new Padding(0, 0, 5, 0),
             };
 
+            likeButton.Click += async (s, e) => {
+                await users.ToggleLikePost(p.user.Id, post.Id);
+                var ps = await posts.Find(post.Id);
+                post = ps;
+                likeButton.Text = $"Like [{ps.Likes}]";
+            };
+
             var commentButton = new MaterialSkin.Controls.MaterialButton
             {
                 AutoSizeMode = AutoSizeMode.GrowAndShrink,
@@ -147,7 +170,7 @@ namespace CSD207_Project_System
                 Text = $"Comment [{post.Comments}]",
                 UseAccentColor = true,
                 Margin = new Padding(0, 0, 5, 0),
-            }
+            };
 
             actionPanel.Controls.Add(likeButton);
             actionPanel.Controls.Add(commentButton);
@@ -180,5 +203,9 @@ namespace CSD207_Project_System
             return dateTime.ToString("MMMM dd, yyyy");
         }
 
+        private void EditProfileBtn_Click(object sender, EventArgs e)
+        {
+            p.NextPage(new EditProfile(p));
+        }
     }
 }

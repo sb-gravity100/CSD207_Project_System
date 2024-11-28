@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using SharpCompress;
 
 namespace CSD207_Project_System.classes
 {
@@ -65,7 +66,7 @@ namespace CSD207_Project_System.classes
         {
             try
             {
-                var result = await _collection.ReplaceOneAsync(Builders<T>.Filter.Eq("_id", document.Id), document);
+                var result = await _collection.ReplaceOneAsync(Builders<T>.Filter.Eq("_id", new ObjectId(document.Id)), document);
                 return result.ModifiedCount > 0;
             }
             catch
@@ -79,7 +80,7 @@ namespace CSD207_Project_System.classes
             try
             {
                 var updateDefinition = Builders<T>.Update.Set(property, value);
-                var result = await _collection.UpdateOneAsync(Builders<T>.Filter.Eq("_id", id), updateDefinition);
+                var result = await _collection.UpdateOneAsync(Builders<T>.Filter.Eq("_id", new ObjectId(id)), updateDefinition);
                 return result.ModifiedCount > 0;
             }
             catch
@@ -93,7 +94,7 @@ namespace CSD207_Project_System.classes
         {
             try
             {
-                var result = await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", id));
+                var result = await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", new ObjectId(id)));
                 return result.DeletedCount > 0;
             }
             catch
@@ -106,7 +107,7 @@ namespace CSD207_Project_System.classes
         {
             try
             {
-                var result = await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", document.Id));
+                var result = await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", new ObjectId(document.Id)));
                 return result.DeletedCount > 0;
             }
             catch
@@ -119,7 +120,9 @@ namespace CSD207_Project_System.classes
         {
             try
             {
-                var result = await _collection.DeleteManyAsync(Builders<T>.Filter.In("_id", ids));
+                var newlist = new List<ObjectId>();
+                ids.ForEach(t => newlist.Add(new ObjectId(t)));
+                var result = await _collection.DeleteManyAsync(Builders<T>.Filter.In("_id", newlist));
                 return result.DeletedCount > 0;
             }
             catch
@@ -133,7 +136,9 @@ namespace CSD207_Project_System.classes
             try
             {
                 var ids = documents.Select(d => d.Id);
-                var result = await _collection.DeleteManyAsync(Builders<T>.Filter.In("_id", ids));
+                var newlist = new List<ObjectId>();
+                ids.ForEach(t => newlist.Add(new ObjectId(t)));
+                var result = await _collection.DeleteManyAsync(Builders<T>.Filter.In("_id", newlist));
                 return result.DeletedCount > 0;
             }
             catch
@@ -144,7 +149,7 @@ namespace CSD207_Project_System.classes
 
         public async Task<bool> Exists(string id)
         {
-            return await _collection.Find(Builders<T>.Filter.Eq("_id", id)).AnyAsync();
+            return await _collection.Find(Builders<T>.Filter.Eq("_id", new ObjectId(id))).AnyAsync();
         }
 
         public async Task<List<T>> Search(string searchTerm)

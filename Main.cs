@@ -109,7 +109,18 @@ namespace CSD207_Project_System
         }
 
 
+        public void Logout()
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                NextPage(new Login(this));
+                user = null;
+
+            }
+
+        }
 
     }
 }

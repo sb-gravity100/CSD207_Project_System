@@ -43,6 +43,7 @@ namespace CSD207_Project_System
             var user = await Find(userId);
             if (user != null)
             {
+                Console.WriteLine("done");
                 if (user.LikedPosts == null)
                     user.LikedPosts = new List<string>();
 
