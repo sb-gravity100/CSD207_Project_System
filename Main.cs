@@ -15,6 +15,7 @@ using static MaterialSkin.MaterialSkinManager;
 using MaterialSkin.Controls;
 using static System.Net.Mime.MediaTypeNames;
 using SharpCompress;
+using Application = System.Windows.Forms.Application;
 
 namespace CSD207_Project_System
 {
@@ -32,7 +33,21 @@ namespace CSD207_Project_System
             skin.AddFormToManage(this);
             skin.Theme = THEME;
             //Size = new Size(864, 652);
-            skin.ColorScheme = new ColorScheme(Primary.BlueGrey500, Primary.BlueGrey700, Primary.BlueGrey300, Accent.LightBlue200, TextShade.WHITE);
+            skin.ColorScheme = new ColorScheme(Primary.BlueGrey500, Primary.BlueGrey700, Primary.BlueGrey300, Accent.Cyan700, TextShade.WHITE);
+
+            ControlAdded += (s, e) =>
+            {
+                foreach (Control item in Controls)
+                {
+                    if (!item.Equals(themeBtn))
+                    {
+                        item.Size = UserArea.Size;
+                        item.MaximumSize = item.Size;
+                    }
+                }
+            };
+
+            FormClosed += (s, e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         private async void TestHome()
@@ -106,6 +121,24 @@ namespace CSD207_Project_System
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
+        }
+
+        public string FormatDate(DateTime dateTime)
+        {
+            TimeSpan timeSpan = DateTime.Now - dateTime;
+
+            if (timeSpan.TotalSeconds < 60)
+                return $"{(int)timeSpan.TotalSeconds} seconds ago";
+            if (timeSpan.TotalMinutes < 60)
+                return $"{(int)timeSpan.TotalMinutes} minutes ago";
+            if (timeSpan.TotalHours < 24)
+                return $"{(int)timeSpan.TotalHours} hours ago";
+            if (timeSpan.TotalDays < 7)
+                return $"{(int)timeSpan.TotalDays} days ago";
+            if (timeSpan.TotalDays < 30)
+                return $"{(int)(timeSpan.TotalDays / 7)} weeks ago";
+
+            return dateTime.ToString("MMMM dd, yyyy");
         }
 
 

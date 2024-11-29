@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSD207_Project_System.classes
+namespace CSD207_Project_System
 {
     public class Comment : BaseClass
     {

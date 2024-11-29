@@ -37,12 +37,12 @@
             this.themeBtn.Depth = 0;
             this.themeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.themeBtn.Icon = global::CSD207_Project_System.Properties.Resources.dark_mode_black;
-            this.themeBtn.Location = new System.Drawing.Point(0, 638);
+            this.themeBtn.Location = new System.Drawing.Point(0, 655);
             this.themeBtn.Mini = true;
             this.themeBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.themeBtn.Name = "themeBtn";
             this.themeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 5);
-            this.themeBtn.Size = new System.Drawing.Size(881, 42);
+            this.themeBtn.Size = new System.Drawing.Size(897, 42);
             this.themeBtn.TabIndex = 15;
             this.themeBtn.Text = "materialFloatingActionButton1";
             this.themeBtn.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(884, 683);
+            this.ClientSize = new System.Drawing.Size(900, 700);
             this.Controls.Add(this.themeBtn);
             this.DrawerAutoHide = false;
             this.DrawerUseColors = true;
@@ -62,6 +62,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(900, 700);
             this.Name = "Main";
             this.Padding = new System.Windows.Forms.Padding(0, 24, 3, 3);
             this.Sizable = false;

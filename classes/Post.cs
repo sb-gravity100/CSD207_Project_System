@@ -1,5 +1,4 @@
-﻿using CSD207_Project_System.classes;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
@@ -73,6 +72,13 @@ namespace CSD207_Project_System
                 await Update(post);
             }
         }
+
+        public async Task<List<Post>> FindByTags(List<string> tags)
+        {
+            var filter = Builders<Post>.Filter.AnyIn(post => post.Tags, tags);
+            return await Find(filter);
+        }
+
 
     }
 }

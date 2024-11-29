@@ -27,6 +27,8 @@ namespace CSD207_Project_System
             ProfileInit();
 
             LogoutBtn.Click += (s, e) => p.Logout();
+            TagPostFilter.ControlAdded += (s, e) => LoadPosts();
+            TagPostFilter.ControlRemoved += (s, e) => LoadPosts();
         }
 
         private void ProfileInit()
@@ -38,9 +40,21 @@ namespace CSD207_Project_System
 
         private async void LoadPosts()
         {
+            PostsPanel.Controls.Clear();
             try
             {
-                var p = await posts.Find(Builders<Post>.Filter.Empty);
+                var filter = Builders<Post>.Filter.Empty;
+                if (TagPostFilter.Controls.Count > 0)
+                {
+                    Console.WriteLine("Not empty.");
+                    var st = new List<string>();
+                    foreach (Control ct in TagPostFilter.Controls)
+                    {
+                        st.Add(ct.Text);
+                    }
+                    filter = Builders<Post>.Filter.AnyIn(post => post.Tags, st);
+                }
+                var p = await posts.Find(filter);
                 foreach (var post in p)
                 {
                     var u = await users.Find(post.UserId);
@@ -73,33 +87,40 @@ namespace CSD207_Project_System
                 Padding = new Padding(14),
                 Margin = new Padding(14),
                 Dock = DockStyle.Top,
-                MinimumSize = new Size(0, 200)
+                MinimumSize = new Size(0, 300)
             };
 
-            var bodyLabel = new MaterialSkin.Controls.MaterialLabel
+            var bodyLabel = new MaterialSkin.Controls.MaterialMultiLineTextBox
             {
                 Depth = 0,
                 Dock = DockStyle.Fill,
-                Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel),
+                Font = new Font("Roboto", 24F, FontStyle.Regular, GraphicsUnit.Pixel),
                 Padding = new Padding(0, 20, 0, 20),
                 Text = post.Content,
                 AutoSize = false,
-                Size = new Size(362, 100),
+                Size = new Size(362, 0),
                 Cursor = Cursors.Hand,
+                ReadOnly = true,
+                HideSelection = true,
+                SelectionStart = post.Content.Length,
+                SelectionLength = 0,
             };
 
-            bodyLabel.Click += (s, e) => {
+            bodyLabel.GotFocus += (sender, e) => bodyLabel.Parent.Focus();
+
+            bodyLabel.Click += (s, e) =>
+            {
                 p.NextPage(new PostArea(p, post));
             };
 
             bodyLabel.MouseHover += (s, e) =>
             {
-                bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+                //bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
             };
 
             bodyLabel.MouseLeave += (s, e) =>
             {
-                bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Body1;
+                //bodyLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Body1;
             };
 
             var subtitleLabel = new MaterialSkin.Controls.MaterialLabel
@@ -108,7 +129,7 @@ namespace CSD207_Project_System
                 Dock = DockStyle.Bottom,
                 Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Pixel),
                 FontType = MaterialSkin.MaterialSkinManager.fontType.Caption,
-                Text = $"{user.UserName} — {FormatDate(post.CreatedAt)}",
+                Text = $"{user.UserName} — {p.FormatDate(post.CreatedAt)}",
                 Size = new Size(362, 14),
             };
 
@@ -126,11 +147,29 @@ namespace CSD207_Project_System
                     AutoSizeMode = AutoSizeMode.GrowAndShrink,
                     Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default,
                     Depth = 0,
-                    HighEmphasis = true,
                     Text = tag,
                     Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined,
-                    UseAccentColor = true,
+                    UseAccentColor = false,
                     Margin = new Padding(0, 0, 5, 0),
+                };
+
+                tagButton.Click += (s, e) =>
+                {
+                    var tb = new MaterialSkin.Controls.MaterialButton
+                    {
+                        AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                        Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default,
+                        Depth = 0,
+                        Text = tag,
+                        Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined,
+                        UseAccentColor = true,
+                        Margin = new Padding(0, 0, 5, 0),
+                    };
+                    tb.Click += (ss, ee) =>
+                    {
+                        TagPostFilter.Controls.Remove(tb);
+                    };
+                    TagPostFilter.Controls.Add(tb);
                 };
                 tagPanel.Controls.Add(tagButton);
             }
@@ -154,7 +193,8 @@ namespace CSD207_Project_System
                 Margin = new Padding(0, 0, 5, 0),
             };
 
-            likeButton.Click += async (s, e) => {
+            likeButton.Click += async (s, e) =>
+            {
                 await users.ToggleLikePost(p.user.Id, post.Id);
                 var ps = await posts.Find(post.Id);
                 post = ps;
@@ -185,23 +225,6 @@ namespace CSD207_Project_System
         }
 
 
-        private string FormatDate(DateTime dateTime)
-        {
-            TimeSpan timeSpan = DateTime.Now - dateTime;
-
-            if (timeSpan.TotalSeconds < 60)
-                return $"{(int)timeSpan.TotalSeconds} seconds ago";
-            if (timeSpan.TotalMinutes < 60)
-                return $"{(int)timeSpan.TotalMinutes} minutes ago";
-            if (timeSpan.TotalHours < 24)
-                return $"{(int)timeSpan.TotalHours} hours ago";
-            if (timeSpan.TotalDays < 7)
-                return $"{(int)timeSpan.TotalDays} days ago";
-            if (timeSpan.TotalDays < 30)
-                return $"{(int)(timeSpan.TotalDays / 7)} weeks ago";
-
-            return dateTime.ToString("MMMM dd, yyyy");
-        }
 
         private void EditProfileBtn_Click(object sender, EventArgs e)
         {

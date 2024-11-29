@@ -93,6 +93,16 @@ namespace CSD207_Project_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20 {
+            get {
+                object obj = ResourceManager.GetObject("grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap grid_view_gray {
             get {
                 object obj = ResourceManager.GetObject("grid_view_gray", resourceCulture);
@@ -143,6 +153,16 @@ namespace CSD207_Project_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap LOGO {
+            get {
+                object obj = ResourceManager.GetObject("LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap mail_gray {
             get {
                 object obj = ResourceManager.GetObject("mail_gray", resourceCulture);
@@ -166,6 +186,16 @@ namespace CSD207_Project_System.Properties {
         public static System.Drawing.Bitmap post_add_gray {
             get {
                 object obj = ResourceManager.GetObject("post_add_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap send_16dp_999999_FILL0_wght400_GRAD0_opsz20__1_ {
+            get {
+                object obj = ResourceManager.GetObject("send_16dp_999999_FILL0_wght400_GRAD0_opsz20 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

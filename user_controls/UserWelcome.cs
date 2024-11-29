@@ -20,8 +20,12 @@ namespace CSD207_Project_System
             Dock = DockStyle.Fill;
 
             UserTxt.Text = p.user.UserName;
+            materialButton1.Font = new Font("Roboto", 26F, FontStyle.Regular, GraphicsUnit.Pixel);
         }
 
-
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            p.NextPage(new Home(p));
+        }
     }
 }

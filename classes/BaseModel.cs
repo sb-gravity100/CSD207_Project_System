@@ -8,7 +8,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using SharpCompress;
 
-namespace CSD207_Project_System.classes
+namespace CSD207_Project_System
 {
     public class BaseClass
     {

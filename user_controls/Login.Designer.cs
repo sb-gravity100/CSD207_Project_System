@@ -35,6 +35,7 @@
             this.loginBtn = new MaterialSkin.Controls.MaterialButton();
             this.password = new MaterialSkin.Controls.MaterialTextBox();
             this.username = new MaterialSkin.Controls.MaterialTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             // 
             this.materialCard1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.panel1);
             this.materialCard1.Controls.Add(this.userLabel);
             this.materialCard1.Controls.Add(this.passLabel);
             this.materialCard1.Controls.Add(this.regBtn);
@@ -164,6 +166,15 @@
             this.username.TrailingIcon = global::CSD207_Project_System.Properties.Resources.user_gray;
             this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterPress);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CSD207_Project_System.Properties.Resources.LOGO;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(17, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(316, 94);
+            this.panel1.TabIndex = 25;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -184,5 +195,6 @@
         private MaterialSkin.Controls.MaterialLabel regBtn;
         private MaterialSkin.Controls.MaterialLabel userLabel;
         private MaterialSkin.Controls.MaterialLabel passLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

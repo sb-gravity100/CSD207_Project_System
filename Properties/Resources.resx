@@ -121,23 +121,17 @@
   <data name="light_mode_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\light_mode_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lock_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\lock_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dark_mode_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\dark_mode_16dp_000000_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="notifications_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\notifications_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="light_mode_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\light_mode_16dp_000000_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="14034319" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\14034319.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="light_mode_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\light_mode_16dp_000000_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="post_add_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\post_add_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dark_mode_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\dark_mode_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mail_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\mail_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid_view_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,13 +139,28 @@
   <data name="key_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\key_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lock_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\lock_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\face_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mail_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\mail_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dark_mode_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\dark_mode_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="post_add_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\post_add_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dark_mode_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\dark_mode_16dp_000000_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notifications_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\notifications_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send_16dp_999999_FILL0_wght400_GRAD0_opsz20 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\send_16dp_999999_FILL0_wght400_GRAD0_opsz20 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
