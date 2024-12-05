@@ -25,38 +25,41 @@ namespace CSD207_Project_System
             this.p = p;
             Dock = DockStyle.Fill;
             ContentBox.KeyDown += p.CtrlBackEnable;
-            LoadTags();
+            Task.Run(LoadTags);
         }
 
-        private async void LoadTags()
+        private async Task LoadTags()
         {
             _tags = await tags.Find(Builders<Tag>.Filter.Empty);
-            foreach (var item in _tags)
+            Invoke(new Action(() =>
             {
-                var btn = new MaterialSkin.Controls.MaterialButton
+                foreach (var item in _tags)
                 {
-                    AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                    Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default,
-                    Depth = 0,
-                    Text = item.Name,
-                    Name = item.Name
-                };
-                btn.Click += (s, e) =>
-                {
-                    if (btn.UseAccentColor)
+                    var btn = new MaterialSkin.Controls.MaterialButton
                     {
-                        Tags.Remove(item.Name);
-                        btn.UseAccentColor = false;
-                    }
-                    else
+                        AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                        Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default,
+                        Depth = 0,
+                        Text = item.Name,
+                        Name = item.Name
+                    };
+                    btn.Click += (s, e) =>
                     {
-                        Tags.Add(item.Name);
-                        btn.UseAccentColor = true;
-                    }
-                };
-                TagPanel.Controls.Add(btn);
-            }
-            TagBox.TextChanged += TagBox_TextChanged;
+                        if (btn.UseAccentColor)
+                        {
+                            Tags.Remove(item.Name);
+                            btn.UseAccentColor = false;
+                        }
+                        else
+                        {
+                            Tags.Add(item.Name);
+                            btn.UseAccentColor = true;
+                        }
+                    };
+                    TagPanel.Controls.Add(btn);
+                }
+                TagBox.TextChanged += TagBox_TextChanged;
+            }));
         }
 
 

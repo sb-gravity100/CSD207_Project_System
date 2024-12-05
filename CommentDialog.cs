@@ -14,10 +14,10 @@ namespace CSD207_Project_System
 {
     public partial class CommentDialog : MaterialForm
     {
-        private Post post;
-        private User user;
-        private PostArea postarea;
-        private CommentModel comments;
+        private readonly Post post;
+        private readonly User user;
+        private readonly PostArea postarea;
+        private readonly CommentModel comments;
         public MaterialSkinManager skin = MaterialSkinManager.Instance;
 
         public CommentDialog(Post p, User u, PostArea pa)
@@ -32,24 +32,31 @@ namespace CSD207_Project_System
 
         private async void materialButton1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(CommentBox.Text))
+            try
             {
-                var c = new Comment()
+                if (!string.IsNullOrWhiteSpace(CommentBox.Text) && post != null && user != null)
                 {
-                    Content = CommentBox.Text,
-                    CreatedAt = DateTime.Now,
-                    Likes = 0,
-                    PostId = post.Id,
-                    UserId = user.Id,
-                };
 
-                var res = await comments.Insert(c);
+                    var c = new Comment()
+                    {
+                        Content = CommentBox.Text,
+                        CreatedAt = DateTime.Now,
+                        Likes = 0,
+                        PostId = post.Id,
+                        UserId = user.Id,
+                    };
 
-                if (res)
-                {
-                    this.Close();
-                    postarea.LoadComments();
+                    var res = await comments.Insert(c);
+
+                    if (res)
+                    {
+                        Close();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 

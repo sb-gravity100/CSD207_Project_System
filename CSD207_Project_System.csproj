@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{126A5BC1-71FF-46F0-B878-F55EF14C801C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CSD207_Project_System</RootNamespace>
     <AssemblyName>CSD207_Project_System</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -227,9 +227,6 @@
     </Compile>
     <Compile Include="user_controls\CreatePost.Designer.cs">
       <DependentUpon>CreatePost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\MongoFuzzySearchBox.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="user_controls\Home.cs">
       <SubType>UserControl</SubType>

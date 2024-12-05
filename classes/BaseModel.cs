@@ -43,8 +43,9 @@ namespace CSD207_Project_System
                 await _collection.InsertOneAsync(document);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return false;
             }
         }

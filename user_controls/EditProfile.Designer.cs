@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.PassBox = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -44,6 +43,7 @@
             this.Gmail = new MaterialSkin.Controls.MaterialTextBox();
             this.UserName = new MaterialSkin.Controls.MaterialTextBox();
             this.DisplayName = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -55,39 +55,16 @@
             this.materialCard1.Controls.Add(this.materialCard3);
             this.materialCard1.Controls.Add(this.materialCard2);
             this.materialCard1.Depth = 0;
-            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Top;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(20, 20);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(824, 478);
+            this.materialCard1.Size = new System.Drawing.Size(824, 430);
             this.materialCard1.TabIndex = 0;
             this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
-            // 
-            // materialButton3
-            // 
-            this.materialButton3.AutoSize = false;
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Title;
-            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(20, 462);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 15, 4, 6);
-            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(824, 36);
-            this.materialButton3.TabIndex = 7;
-            this.materialButton3.Text = "Go Back";
-            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = false;
-            this.materialButton3.UseVisualStyleBackColor = true;
-            this.materialButton3.Click += new System.EventHandler(this.materialButton3_Click);
             // 
             // materialCard3
             // 
@@ -106,7 +83,7 @@
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(306, 450);
+            this.materialCard3.Size = new System.Drawing.Size(306, 402);
             this.materialCard3.TabIndex = 6;
             // 
             // PassBox
@@ -115,7 +92,7 @@
             this.PassBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PassBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.PassBox.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.PassBox.Location = new System.Drawing.Point(14, 417);
+            this.PassBox.Location = new System.Drawing.Point(14, 369);
             this.PassBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.PassBox.Name = "PassBox";
             this.PassBox.Size = new System.Drawing.Size(278, 19);
@@ -168,7 +145,7 @@
             this.RepeatPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.RepeatPassword.Hint = "Repeat Password";
             this.RepeatPassword.LeadingIcon = null;
-            this.RepeatPassword.Location = new System.Drawing.Point(16, 235);
+            this.RepeatPassword.Location = new System.Drawing.Point(16, 211);
             this.RepeatPassword.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.RepeatPassword.MaxLength = 50;
             this.RepeatPassword.MouseState = MaterialSkin.MouseState.OUT;
@@ -189,7 +166,7 @@
             this.Password.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Password.Hint = "Password";
             this.Password.LeadingIcon = null;
-            this.Password.Location = new System.Drawing.Point(16, 108);
+            this.Password.Location = new System.Drawing.Point(16, 84);
             this.Password.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Password.MaxLength = 50;
             this.Password.MouseState = MaterialSkin.MouseState.OUT;
@@ -210,7 +187,7 @@
             this.NewPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.NewPassword.Hint = "New Password";
             this.NewPassword.LeadingIcon = null;
-            this.NewPassword.Location = new System.Drawing.Point(16, 171);
+            this.NewPassword.Location = new System.Drawing.Point(16, 147);
             this.NewPassword.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.NewPassword.MaxLength = 50;
             this.NewPassword.MouseState = MaterialSkin.MouseState.OUT;
@@ -239,7 +216,7 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(292, 450);
+            this.materialCard2.Size = new System.Drawing.Size(292, 402);
             this.materialCard2.TabIndex = 1;
             // 
             // InfoBox
@@ -248,7 +225,7 @@
             this.InfoBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.InfoBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.InfoBox.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.InfoBox.Location = new System.Drawing.Point(14, 417);
+            this.InfoBox.Location = new System.Drawing.Point(14, 369);
             this.InfoBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.InfoBox.Name = "InfoBox";
             this.InfoBox.Size = new System.Drawing.Size(264, 19);
@@ -302,7 +279,7 @@
             this.Gmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Gmail.Hint = "Gmail";
             this.Gmail.LeadingIcon = null;
-            this.Gmail.Location = new System.Drawing.Point(17, 235);
+            this.Gmail.Location = new System.Drawing.Point(17, 211);
             this.Gmail.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Gmail.MaxLength = 50;
             this.Gmail.MouseState = MaterialSkin.MouseState.OUT;
@@ -323,7 +300,7 @@
             this.UserName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.UserName.Hint = "Username";
             this.UserName.LeadingIcon = null;
-            this.UserName.Location = new System.Drawing.Point(17, 171);
+            this.UserName.Location = new System.Drawing.Point(17, 147);
             this.UserName.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.UserName.MaxLength = 50;
             this.UserName.MouseState = MaterialSkin.MouseState.OUT;
@@ -343,7 +320,7 @@
             this.DisplayName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DisplayName.Hint = "Display Name";
             this.DisplayName.LeadingIcon = null;
-            this.DisplayName.Location = new System.Drawing.Point(17, 108);
+            this.DisplayName.Location = new System.Drawing.Point(17, 84);
             this.DisplayName.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.DisplayName.MaxLength = 50;
             this.DisplayName.MouseState = MaterialSkin.MouseState.OUT;
@@ -354,6 +331,29 @@
             this.DisplayName.Text = "";
             this.DisplayName.TrailingIcon = global::CSD207_Project_System.Properties.Resources.grid_view_16dp_999999_FILL0_wght400_GRAD0_opsz20;
             this.DisplayName.TextChanged += new System.EventHandler(this.materialTextBox1_TextChanged);
+            // 
+            // materialButton3
+            // 
+            this.materialButton3.AutoSize = false;
+            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton3.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Title;
+            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton3.Depth = 0;
+            this.materialButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialButton3.HighEmphasis = true;
+            this.materialButton3.Icon = null;
+            this.materialButton3.Location = new System.Drawing.Point(20, 455);
+            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 15, 4, 6);
+            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton3.Name = "materialButton3";
+            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton3.Size = new System.Drawing.Size(824, 43);
+            this.materialButton3.TabIndex = 7;
+            this.materialButton3.Text = "Go Back";
+            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton3.UseAccentColor = false;
+            this.materialButton3.UseVisualStyleBackColor = true;
+            this.materialButton3.Click += new System.EventHandler(this.materialButton3_Click);
             // 
             // EditProfile
             // 

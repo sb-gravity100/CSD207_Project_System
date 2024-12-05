@@ -13,7 +13,6 @@ namespace CSD207_Project_System
 {
     public partial class Home : UserControl
     {
-        private static readonly List<string> TAG_CONSTANT = new List<string>();
         Main p;
         PostModel posts;
         UserModel users;
@@ -26,19 +25,21 @@ namespace CSD207_Project_System
             users = new UserModel();
             ProfileInit();
 
+            
+
             LogoutBtn.Click += (s, e) => p.Logout();
-            TagPostFilter.ControlAdded += (s, e) => LoadPosts();
-            TagPostFilter.ControlRemoved += (s, e) => LoadPosts();
+            TagPostFilter.ControlAdded += (s, e) => Task.Run(LoadPosts);
+            TagPostFilter.ControlRemoved += (s, e) => Task.Run(LoadPosts);
         }
 
         private void ProfileInit()
         {
             DisplayNameLabel.Text = p.user.DisplayName;
             UsernameLabel.Text = p.user.UserName;
-            LoadPosts();
+            Task.Run(LoadPosts);
         }
 
-        private async void LoadPosts()
+        private async Task LoadPosts()
         {
             PostsPanel.Controls.Clear();
             try
@@ -60,9 +61,12 @@ namespace CSD207_Project_System
                     var u = await users.Find(post.UserId);
                     if (u != null)
                     {
-                        var postcard = CreatePostsCard(post, u);
-                        PostsPanel.RowCount++;
-                        PostsPanel.Controls.Add(postcard, 0, PostsPanel.RowCount - 1);
+                        Invoke(new Action(() =>
+                        {
+                            var postcard = CreatePostsCard(post, u);
+                            PostsPanel.RowCount++;
+                            PostsPanel.Controls.Add(postcard, 0, PostsPanel.RowCount - 1);
+                        }));
                     }
                 }
             }
@@ -198,7 +202,10 @@ namespace CSD207_Project_System
                 await users.ToggleLikePost(p.user.Id, post.Id);
                 var ps = await posts.Find(post.Id);
                 post = ps;
-                likeButton.Text = $"Like [{ps.Likes}]";
+                Invoke(new Action(() =>
+                {
+                    likeButton.Text = $"Like [{ps.Likes}]";
+                }));
             };
 
             var commentButton = new MaterialSkin.Controls.MaterialButton

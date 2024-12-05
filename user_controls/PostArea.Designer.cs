@@ -34,6 +34,7 @@
             this.LikeBtn = new MaterialSkin.Controls.MaterialButton();
             this.CommentBtn = new MaterialSkin.Controls.MaterialButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DateBox = new MaterialSkin.Controls.MaterialLabel();
             this.AuthorBox = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.PostContent = new MaterialSkin.Controls.MaterialMultiLineTextBox();
@@ -46,7 +47,6 @@
             this.CreatePostBtn = new MaterialSkin.Controls.MaterialButton();
             this.EditProfileBtn = new MaterialSkin.Controls.MaterialButton();
             this.LogoutBtn = new MaterialSkin.Controls.MaterialButton();
-            this.DateBox = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.ControlBtnPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,7 +80,7 @@
             this.CommentPanel.ColumnCount = 1;
             this.CommentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.CommentPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CommentPanel.Location = new System.Drawing.Point(14, 261);
+            this.CommentPanel.Location = new System.Drawing.Point(14, 274);
             this.CommentPanel.Name = "CommentPanel";
             this.CommentPanel.RowCount = 1;
             this.CommentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -92,7 +92,7 @@
             this.ControlBtnPanel.Controls.Add(this.LikeBtn);
             this.ControlBtnPanel.Controls.Add(this.CommentBtn);
             this.ControlBtnPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ControlBtnPanel.Location = new System.Drawing.Point(14, 216);
+            this.ControlBtnPanel.Location = new System.Drawing.Point(14, 229);
             this.ControlBtnPanel.Name = "ControlBtnPanel";
             this.ControlBtnPanel.Size = new System.Drawing.Size(409, 45);
             this.ControlBtnPanel.TabIndex = 5;
@@ -141,17 +141,33 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.DateBox);
             this.panel2.Controls.Add(this.AuthorBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(14, 195);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 21);
+            this.panel2.Size = new System.Drawing.Size(409, 34);
             this.panel2.TabIndex = 8;
+            // 
+            // DateBox
+            // 
+            this.DateBox.Depth = 0;
+            this.DateBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DateBox.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.DateBox.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.DateBox.Location = new System.Drawing.Point(0, 0);
+            this.DateBox.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
+            this.DateBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.DateBox.Name = "DateBox";
+            this.DateBox.Padding = new System.Windows.Forms.Padding(10);
+            this.DateBox.Size = new System.Drawing.Size(174, 34);
+            this.DateBox.TabIndex = 2;
+            this.DateBox.Text = "Author";
+            this.DateBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AuthorBox
             // 
-            this.AuthorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AuthorBox.Depth = 0;
             this.AuthorBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.AuthorBox.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -161,7 +177,7 @@
             this.AuthorBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.AuthorBox.Name = "AuthorBox";
             this.AuthorBox.Padding = new System.Windows.Forms.Padding(10);
-            this.AuthorBox.Size = new System.Drawing.Size(200, 21);
+            this.AuthorBox.Size = new System.Drawing.Size(200, 34);
             this.AuthorBox.TabIndex = 1;
             this.AuthorBox.Text = "Author";
             this.AuthorBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -356,23 +372,6 @@
             this.LogoutBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.LogoutBtn.UseAccentColor = false;
             this.LogoutBtn.UseVisualStyleBackColor = true;
-            // 
-            // DateBox
-            // 
-            this.DateBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DateBox.Depth = 0;
-            this.DateBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DateBox.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.DateBox.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.DateBox.Location = new System.Drawing.Point(0, 0);
-            this.DateBox.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
-            this.DateBox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.DateBox.Name = "DateBox";
-            this.DateBox.Padding = new System.Windows.Forms.Padding(10);
-            this.DateBox.Size = new System.Drawing.Size(174, 21);
-            this.DateBox.TabIndex = 2;
-            this.DateBox.Text = "Author";
-            this.DateBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PostArea
             // 

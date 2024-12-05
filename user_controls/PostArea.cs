@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,10 @@ namespace CSD207_Project_System
     public partial class PostArea : System.Windows.Forms.UserControl
     {
         Post post;
-        UserModel users;
+        readonly UserModel users;
         PostModel posts;
-        CommentModel comms;
-        Main p;
+        readonly Main p;
+        private readonly BackgroundWorker _backgroundWorker;
         public PostArea(Main parent, Post post)
         {
             InitializeComponent();
@@ -31,18 +32,50 @@ namespace CSD207_Project_System
             users = new UserModel();
             posts = new PostModel();
 
+
             PostContent.SelectionStart = PostContent.Text.Length;
             PostContent.SelectionLength = 0;
             PostContent.HideSelection = true;
             PostContent.Cursor = Cursors.Arrow;
-            PostContent.Font = new Font("Roboto", 24F, FontStyle.Regular, GraphicsUnit.Pixel);
-            PostContent.BackColor = SystemColors.ControlLightLight;
+            PostContent.Font = new Font("Roboto", 30F, FontStyle.Regular, GraphicsUnit.Pixel);
+            PostContent.BackColor = SystemColors.ActiveCaption;
+            materialCard2.BackColor = SystemColors.ActiveCaption;
 
             PostContent.GotFocus += (sender, e) => PostContent.Parent.Focus();
 
             LoadPost();
             LoadComments();
             LogoutBtn.Click += (s, e) => p.Logout();
+
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += WatchPost;
+            _backgroundWorker.RunWorkerAsync();
+        }
+
+        private async void WatchPost(object sender, DoWorkEventArgs e)
+        {
+            Console.WriteLine("operation working");
+            try
+            {
+                var pc = Program.db.GetCollection<Post>("Posts");
+                var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<Post>>()
+                    .Match(c => c.OperationType == ChangeStreamOperationType.Update);
+
+                using (var cur = await pc.WatchAsync(pipeline))
+                {
+                    foreach (var c in cur.ToEnumerable())
+                    {
+                        Console.Write("update");
+                        this.Invoke((Action)(() =>
+                        {
+                            LoadPost();
+                        }));
+                    }
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private async void LoadPost()

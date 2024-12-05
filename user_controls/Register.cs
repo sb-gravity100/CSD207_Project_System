@@ -124,10 +124,10 @@ namespace CSD207_Project_System
 
         private void SendBtn_Click(object sender, EventArgs e)
         {
-            SendMail();
+            Task.Run(SendMail);
         }
 
-        private void SendMail()
+        private async Task SendMail()
         {
             var rnd = new Random();
             CODE = rnd.Next(10000, 99999).ToString();
@@ -145,21 +145,21 @@ namespace CSD207_Project_System
 
             try
             {
-                client.Connect("smtp.gmail.com", 465, true);
-                client.Authenticate("noreplyducao@gmail.com", "qaoc uufj btpe cfpt");
-                client.Send(msg);
+                await client.ConnectAsync("smtp.gmail.com", 465, true);
+                await client.AuthenticateAsync("noreplyducao@gmail.com", "qaoc uufj btpe cfpt");
+                await client.SendAsync(msg);
+
+                await client.DisconnectAsync(true);
+                Invoke(new Action(() =>
+                {
+                    regGmail.TextChanged -= Email_TextChanged;
+                    sendBtn.Enabled = false;
+                }));
+                StartCooldown();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                client.Disconnect(true);
-                client.Dispose();
-                regGmail.TextChanged -= Email_TextChanged;
-                sendBtn.Enabled = false;
-                StartCooldown();
+                Console.WriteLine(ex);
             }
         }
 
@@ -176,13 +176,12 @@ namespace CSD207_Project_System
             bool isPasswordLong = regPassword.Text.Length >= 5;
             passMsg.Text = isPasswordLong && !isPasswordValid ? "Password is not similar." : "";
 
-            bool isCodeValid;
-            if (CODE != null) isCodeValid = regCode.Text.Equals(CODE);
+            bool isCodeValid = false;
+            if (CODE != null) isCodeValid = regCode.Text.Trim().Equals(CODE);
             bool isAvailable = await users.UsernameExists(regUsername.Text);
             userMsg.Text = !isAvailable ? "" : "Username already exists";
 
-
-            isCodeValid = true;
+            Console.WriteLine($"{isUsernameValid} {isEmailValid} {isPasswordValid} {isCodeValid} {!isAvailable} {isPasswordLong}");
 
             regBtn.Enabled = isUsernameValid && isEmailValid && isPasswordValid && isCodeValid && !isAvailable && isPasswordLong;
         }
